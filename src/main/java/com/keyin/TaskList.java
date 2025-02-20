@@ -26,40 +26,6 @@ public class TaskList {
         }
     }
 
-    public void deleteTask(int index) {
-        if (head == null) {
-            System.out.println("The Task List is empty.");
-            return;
-        }
-
-        if (index == 0) {
-            head = head.next;
-            if (head == null) {
-                tail = null;
-            }
-            return;
-        }
-
-        Node current = head;
-        int count = 0;
-
-        while (current.next != null && count < index - 1) {
-            current = current.next;
-            count++;
-        }
-
-        if (current.next == null) {
-            System.out.println("Task not found.");
-            return;
-        }
-
-        if (current.next.next == null) {
-            tail = current;
-        }
-
-        current.next = current.next.next;
-    }
-
     public void markTaskAsCompleted(int index) {
         Node current = head;
         int count = 0;
