@@ -3,7 +3,6 @@ package com.keyin;
 public class User {
     private String name;
     private TaskList taskList;
-
     private static User[] users = new User[10];
     private static int currentUserIndex = 0;
 
