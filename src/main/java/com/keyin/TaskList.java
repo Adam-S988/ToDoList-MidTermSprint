@@ -40,13 +40,47 @@ public class TaskList {
         System.out.println("Task not found.");
     }
 
-    public void printTasks() {
-        Node current = head;
-        int index = 0;
-        while (current != null) {
-            System.out.println(index + ". " + current.task);
-            current = current.next;
-            index++;
+//    public void printTasks() {
+//        if (head == null) {
+//            System.out.println("User has no tasks.");
+//            return;
+//        }
+//
+//        Node current = head;
+//        int id = 0;
+//
+//        while (current != null) {
+//            String status = current.task.isCompleted() ? "Completed" : "In Progress";
+//            System.out.println("     Description: " + current.task.getDescription() +
+//                    "\n     ID: " + id +
+//                    "\n     Status: " + status);
+//            current = current.next;
+//            id++;
+//        }
+//    }
+
+    @Override
+    public String toString() {
+        if (head == null) {
+            return "User has no tasks.";
         }
+
+        StringBuilder taskDetails = new StringBuilder();
+        Node current = head;
+        int id = 0;
+
+        while (current != null) {
+            String status = current.task.isCompleted() ? "Completed" : "In Progress";
+            taskDetails.append("     Description: ").append(current.task.getDescription())
+                    .append("\n     ID: ").append(id)
+                    .append("\n     Status: ").append(status)
+                    .append("\n");
+            current = current.next;
+            id++;
+        }
+
+        return taskDetails.toString();
     }
+
+
 }
