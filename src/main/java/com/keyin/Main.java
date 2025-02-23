@@ -14,9 +14,8 @@ public class Main {
             System.out.println("4: View Tasks for a user");
             System.out.println("5: View All Users");
             System.out.println("6: Exit");
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+
+            int choice = getValidInt(scanner, "Enter your choice: ");
 
             switch (choice) {
                 case 1:
@@ -55,7 +54,6 @@ public class Main {
                     }
                     break;
 
-
                 case 5:
                     User.printAllUsers();
                     break;
@@ -64,6 +62,25 @@ public class Main {
                     scanner.close();
                     System.exit(0);
                     break;
+
+                default:
+                    System.out.println("\nInvalid choice. Please enter a number between 1 and 6.");
+                    break;
+            }
+        }
+    }
+
+    private static int getValidInt(Scanner scanner, String prompt) {
+        int input;
+        while (true) {
+            System.out.print(prompt);
+            if (scanner.hasNextInt()) {
+                input = scanner.nextInt();
+                scanner.nextLine();
+                return input;
+            } else {
+                System.out.println("\nInvalid input. Please enter a number.");
+                scanner.nextLine();
             }
         }
     }

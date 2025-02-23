@@ -27,42 +27,36 @@ public class TaskList {
     }
 
     public void markTaskAsCompleted(int index) {
+        if (head == null) {
+            System.out.println("No tasks available to mark as completed.");
+            return;
+        }
+
+        if (index < 0) {
+            System.out.println("Invalid task index. Please enter a non-negative number.");
+            return;
+        }
+
         Node current = head;
         int count = 0;
         while (current != null) {
             if (count == index) {
                 current.task.setCompleted(true);
+                System.out.println("Task marked as completed!");
                 return;
             }
             current = current.next;
             count++;
         }
-        System.out.println("Task not found.");
+
+        System.out.println("Invalid task index. No task found at position " + index + ".");
     }
 
-//    public void printTasks() {
-//        if (head == null) {
-//            System.out.println("User has no tasks.");
-//            return;
-//        }
-//
-//        Node current = head;
-//        int id = 0;
-//
-//        while (current != null) {
-//            String status = current.task.isCompleted() ? "Completed" : "In Progress";
-//            System.out.println("     Description: " + current.task.getDescription() +
-//                    "\n     ID: " + id +
-//                    "\n     Status: " + status);
-//            current = current.next;
-//            id++;
-//        }
-//    }
 
     @Override
     public String toString() {
         if (head == null) {
-            return "User has no tasks.";
+            return "No tasks available.";
         }
 
         StringBuilder taskDetails = new StringBuilder();
@@ -81,6 +75,5 @@ public class TaskList {
 
         return taskDetails.toString();
     }
-
 
 }
