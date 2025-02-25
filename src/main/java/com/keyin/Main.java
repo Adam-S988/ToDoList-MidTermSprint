@@ -43,6 +43,18 @@ public class Main {
                     }
                     break;
 
+                case 3:
+                    System.out.println("\nEnter the user's name to mark a task as completed:");
+                    String userForCompletion = scanner.nextLine();
+                    User userForTaskCompletion = User.getUserByName(userForCompletion);
+                    if (userForTaskCompletion != null) {
+                        int taskIndex = getValidInt(scanner, "Enter the task index to mark as complete: ");
+                        userForTaskCompletion.completeTask(taskIndex);
+                    } else {
+                        System.out.println("\nUser not found.");
+                    }
+                    break;
+
                 case 4:
                     System.out.println("\nEnter the user's name to view tasks:");
                     String userForViewing = scanner.nextLine();

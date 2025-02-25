@@ -66,7 +66,7 @@ public class User {
     }
 
     public static void printAllUsers() {
-        System.out.println("List of all users:");
+        System.out.println("\nList of all users:");
         for (int i = 0; i < currentUserIndex; i++) {
             System.out.println(users[i].getName());
         }
