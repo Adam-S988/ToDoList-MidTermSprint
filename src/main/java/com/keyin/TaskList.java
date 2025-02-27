@@ -64,7 +64,7 @@ public class TaskList {
         int id = 0;
 
         while (current != null) {
-            String status = current.task.isCompleted() ? "Completed" : "In Progress";
+            String status = current.task.isCompleted() ? "\u001B[32mCompleted\u001B[0m" : "\u001B[31mPending\u001B[0m";
             taskDetails.append("     Description: ").append(current.task.getDescription())
                     .append("\n     ID: ").append(id)
                     .append("\n     Status: ").append(status)
